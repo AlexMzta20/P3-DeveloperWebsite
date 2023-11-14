@@ -1,30 +1,39 @@
+/* Selector que apunta a la raíz del documento. 
+Se utiliza para definir variables CSS globales. */
 :root {
-    --blanco: #fff;
-    --oscuro: #212121;
-    --primario: #ffc107;
-    --secundario: #0097a7;
-    --gris: #757575;
-    --grisclaro:#DFE9F3;
+    --blanco: #fff; /* Variable CSS, color blanco */
+    --oscuro: #212121; /* Variable CSS, color oscuro */
+    --primario: #ffc107; /* Variable CSS, color primario */
+    --secundario: #0097a7; /* Variable CSS, color secundario */
+    --gris: #757575; /* Variable CSS, color gris */
+    --grisclaro: #DFE9F3; /* Variable CSS, color grisclaro */
 }
 
-html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-    /* Hack para
-    el manejo de box model */
-    background-image: linear-gradient(to top, var(--grisclaro) 0%, var(--blanco) 100%);
+html { /* Selector que apunta a la raíz del documento HTML */
+    font-size: 62.5%; /* Tamaño de fuente */
+    box-sizing: border-box; /* Indica cómo se deben calcular las medidas de un elemento */
+    /* Hack para el manejo de box model */
+    background-image: linear-gradient(to top, var(--grisclaro) 0%, var(--blanco) 100%); /* Gradiente de gris claro a blanco */
+    scroll-snap-type: y mandatory;
+}
+
+/* Scroll snap */
+.título, .servicios-heading, .contacto-heading {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 /* Hack para el manejo de box model */
+/* Selector universal que selecciona todos los elementos, incluyendo los pseudo-elementos */
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+    box-sizing: inherit; /* Hereda el valor de box-sizing del elemento padre */
 }
 
 body {
-    font-size: 16px;
-    font-family: 'Krub', sans-serif;
+    font-size: 16px; /* Tamaño de fuente */
+    font-family: 'Krub', sans-serif; /* Familia de fuentes */
 }
 
 .sombra {
@@ -42,77 +51,104 @@ body {
 
 /* Tipografías */
 h1 {
-    font-size: 3.8rem;
+    font-size: 3.8rem; /* Tamaño de fuente h1*/
 }
 
 h2 {
-    font-size: 2.8rem;
+    font-size: 2.8rem; /* Tamaño de fuente h2 */
 }
 
 h3 {
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Tamaño de fuente h3 */
 }
 
 h1,
 h2,
 h3 {
-    text-align: center;
+    text-align: center; /* Centra el texto */
 }
 
 /* Títulos */
-
 .título span {
-    font-size: 2rem;
+    font-size: 2rem; /* Tamaño de fuente del span */
 }
 
+/* Contenedor */
 .contenedor {
-    max-width: 120rem;
+    max-width: 120rem; /* Establece el ancho máximo del contenedor */
     /* margin-top: 0;
     margin-right: auto;
     margin-bottom: 0;
     margin-left: auto;*/
-    margin: 0 auto;
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
 }
 
-.navegación-principal {
-    background-color: var(--secundario);
+/* Utilidades */
+.w-sm-100 { /* Estilos correspondientes a 'Utilidades' */
+    width: 100%; /* Establece el ancho del elemento en el 100% del ancho del contenedor */
+}
+
+/* Aplica estilos si el ancho de la ventana del navegador es de al menos 768px */
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto; /* Establece el ancho del elemento en el ancho de su contenido */
+    }
+}
+
+/* Aplica un diseño flexible al elemento */
+.flex {
+    display: flex; /* Diseño flexible en pantalla */
+}
+
+/*Alinear a la derecha el botón */
+.alinear-derecha {
+    justify-content: flex-end; /* Hace que la alineación sea a la derecha */
+}
+
+/* Navegación principal */
+.navegación-principal { /*  Aplica estilos a la navegación principal */
+    background-color: var(--secundario); /* Color de fondo secundario */
     /* margin-top: 10rem */
     /* margin: 0 auto */
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Diseño flexible en pantalla */
+    flex-direction: column; /* Establece la dirección de los elementos flexibles en la columna */
     /* justify-content es para las filas (row) y align-item es para las columnas */
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: 2rem;
-    text-align: center;
+    justify-content: space-between; /* Distribuye el espacio entre los elementos de manera uniforme */
+    font-weight: bold; /* Fuente en negritas */
+    font-size: 2rem; /* Tamaño de fuente */
+    text-align: center; /* Centra el texto */
 }
 
+/* Aplica estilos a un elemento de la navegación principal */
 .nav-bg {
-    background-color: var(--secundario);
+    background-color: var(--secundario); /* Color de fondo secundario */
 }
 
+/* Aplica estilos a los elementos 'a' en la navegación principal*/
 .navegación-principal a {
     /*background-color: var(--primario);*/
-    color: var(--blanco);
+    color: var(--blanco); /* Color de texto blanco */
     /*display: block;*/
-    text-decoration: none;
-    padding: 1rem;
+    text-decoration: none; /* Elimina la decoración del texto */
+    padding: 1rem; /* Establece el espacio interior */
 }
 
+/* Aplica un efecto hover al pasar el mouse */
 .navegación-principal a:hover {
-    background-color: var(--primario);
-    color: var(--oscuro);
+    background-color: var(--primario); /* Color de fondo primario */
+    color: var(--oscuro); /* Color de texto oscuro */
 }
 
+/* Aplica estilos si el ancho de la ventana del navegador es de al menos 768px */
 @media (min-width: 768px) {
     .navegación-principal {
-        flex-direction: row;
+        flex-direction: row; /* Establece la dirección de los elementos flexibles en la fila */
     }
 }
 
 /* Hero */
 .hero {
-    background-image: url(../img/hero.png);
+    background-image: url(../img/hero.png); /* Establece la imagen de fondo */
     /* 
     ../ es para regresar al nivel de directorio, 
     la carpeta img  está afuera del CSS */
@@ -130,6 +166,7 @@ h3 {
     /* Margen inferior para separar el espacio */
 }
 
+/* Aplica estilos al contenedor dentro de la sección 'Hero' */
 .contenedor-hero {
     position: absolute;
     /* El hijo debe ser absolute */
@@ -138,20 +175,23 @@ h3 {
     width: 100%;
     height: 100%;
     /* Alinear vertical y horizontalmente */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: flex; /* Diseño flexible en pantalla */
+    flex-direction: column; /* Establece la dirección de los elementos flexibles en la columna */
+    align-items: center; /* Centra los elementos */
+    justify-content: center; /* Hace que la alineación sea centrada */
 }
 
+/* Aplica estilos a todos los elementos 'p' y 'h2',
+dentro de la clase contenedor-hero */
 .contenedor-hero p,
 .contenedor-hero h2 {
-    color: var(--blanco);
+    color: var(--blanco); /* Color de texto blanco */ 
 }
 
+/* Ubicación */
 .ubicacion {
-    display: flex;
-    align-items: flex-end;
+    display: flex; /* Diseño flexible en pantalla */
+    align-items: flex-end; /* Hace que la alineación sea a la derecha */
 }
 
 /* Botón */
@@ -177,52 +217,144 @@ h3 {
     width: 90%;
     /* Ancho del botón, que 
     abarque el 90% si la pantalla es pequeña */
+    border: none;
+    /* Esto afecta únicamente al botón de la etiqueta "input", si esta
+    propiedad no existe en el enlace "a", simplemente lo ignora */
 }
 
+/* Aplica estilos si el ancho de la ventana del navegador es de al menos 768px */
 @media (min-width: 768px) {
-    .botton {
-        width: auto;
+    .botton { /* Clase que aplica estilos al botón */
+        width: auto; /* Ancho del botón autómatico cuando ancho < 768px */
     }
 }
 
-/* Servicios */
+/* Aplica un efecto hover al botón al pasar el mouse */
+.botton:hover {
+    cursor: pointer; /* Cambia el cursor a un puntero */
+}
 
+/* Servicios */
+/* Aplica estilos si el ancho de la ventana del navegador es de al menos 768px */
 @media (min-width: 768px) {
     .servicios {
-        display: grid;
+        display: grid; /* Establece el diseño de cuadrícula */
         /*
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-columns: 33.3% 33.3% 33.3%;
     */
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* Cuadrícula con tres columnas de igual tamaño */
         column-gap: 1rem;
         /* Distancia entre columnas */
     }
 }
 
+/* Aplica estilos a las clases servicio */
 .servicio {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    display: flex; /* Diseño flexible en pantalla */
+    flex-direction: column; /* Establece la dirección de los elementos flexibles en la columna */
+    align-items: center; /* Centra los elementos */
 }
 
+/* Aplica estilos a todos los elementos 'h3' dentro de la clase servicio */
 .servicio h3 {
-    color: var(--secundario);
-    font-weight: normal;
+    color: var(--secundario); /* Color de texto secundario */ 
+    font-weight: normal; /* Establece el peso de la fuente en normal */
 }
 
+/* Aplica estilos a todos los elementos 'p' dentro de la clase servicio */
 .servicio p {
-    line-height: 2; /* Interlineado */
-    text-align: center;
+    line-height: 2;
+    /* Interlineado */
+    text-align: center; 
+    /*  Centra el texto */
 }
- /*
+
+/* Aplica estilos a todos los elementos con la clase 'iconos' dentro 
+de un elemento con la clase 'servicio' */
 .servicio .iconos {
-    height: 15rem;
-    width: 15rem;
-    background-color: var(--primario);
-    border-radius: 50%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    height: 15rem; /* Establece la altura */
+    width: 15rem; /* Establece el ancho */
+    background-color: var(--primario); /* Color de fondo primario */
+    border-radius: 50%; /* Redondea las esquinas para crear una forma circular */
+    display: flex; /* Diseño flexible en pantalla */
+    justify-content: space-evenly; /* Distribuye el espacio entre los elementos de manera uniforme */
+    align-items: center; /* Centra los elementos */
 }
-*/
+
+/* Contacto */
+/* Clase que aplica estilos al formulario de contacto */
+.formulario {
+    background-color: var(--gris); /* Color de fondo gris */
+    width: min(60rem, 100%); /* Establece el ancho mínimo entre 60rem y el 100% del ancho de su contenedor padre */
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    padding: 2rem; /* Establece el espacio interior del formulario */
+    border-radius: 1rem; /* Redondea las esquinas del formulario */
+}
+
+/* Aplica estilo dentro de un elemento con la clase 'formulario' */
+.formulario fieldset {
+    border: none; /* Elimina el borde del fieldset */
+}
+
+/* Aplica estilos a todos los elementos 'legend' dentro de un elemento de la clase 'formulario' */
+.formulario legend {
+    text-align: center; /* Centra el texto */
+    font-size: 1.8rem; /* Tamaño de fuente */
+    font-weight: bold; /* Establece el peso de la fuente en negrita */
+    margin-bottom: 2rem; /* Establece un margen inferior */ 
+    /*text-transform: uppercase;*/
+    color: var(--primario); /* Color del texto primario */
+}
+
+/* Aplica estilos si el ancho de la ventana del navegador es de al menos 768px */
+@media (min-width: 768px) {
+    .contenedor-campos { /* Clase que aplica estilos al contenedor de campos del formulario */
+        display: grid; /* Establece el diseño de cuadrícula */
+        grid-template-columns: repeat(2, 1fr); /* Crea una cuadrícula con dos columnas de igual tamaño */
+        column-gap: 1rem; /* Establece la distancia entre las columnas */
+        grid-template-rows: auto auto 20rem;
+        /* Darle el espacio de cada fila */
+    }
+    /* Como requerimos modificar correo y mensaje, 
+    usaremos 3 y 4 nth-child*/
+    .campo:nth-child(3),
+    .campo:nth-child(4){
+        grid-column: 1/3; /* Para posicionar el elemento, 
+        "que vaya de la columna 1 a la 3" */
+    }
+}
+
+/* Aplica estilos a un campo del formulario */
+.campo {
+    margin-bottom: 1rem; /* Establece un margen inferior */
+}
+
+/* Aplica estilo a todos los elementos 'label' dentro del elemento de la clase 'campo' */
+.campo label {
+    color: var(--blanco); /* Color de texto blanco */
+    font-weight: bold; /* Establece el peso de la fuente en negrita */
+    margin-bottom: .5rem; /* Establece un margen inferior */ 
+    display: block; 
+    /* Logra que cada label tome todo el espacio 
+    disponible  y estar separado por el input */
+}
+
+/* Clase que aplica estilos a un campo de entrada de texto */
+.input-text {
+    width: 100%; /* Ancho del campo al 100% del ancho de su contenedor padre */
+    border: none; /* Elimina el borde del campo de entrada */
+    padding: 1.5rem; /* Espacio interior del campo de entrada */
+    border-radius: .5rem; /* Redondea las esquinas del campo de entrada */
+}
+
+/* Aplica estilo a todos los elementos 'textarea' dentro del elemento de la clase 'campo' */
+.campo textarea {
+    height: 20rem;
+    /* Hacer más grande la altura del textarea */
+}
+
+/* Clase que aplica estilos al pie de página */
+.footer {
+    text-align: center; /* Centra el texto */
+}
